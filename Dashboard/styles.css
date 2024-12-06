@@ -31,8 +31,9 @@ body {
 }
 
 .sidebar-logo img {
+  border-radius: 50%;
   max-width: 100%; /* Prevents horizontal stretching */
-  max-height: 80px; /* Limits vertical size to fit sidebar */
+  max-height: 100px; /* Limits vertical size to fit sidebar */
   object-fit: contain; /* Maintains aspect ratio */
 }
 
@@ -319,7 +320,7 @@ button:hover {
 
 .section-title {
   font-size: 2.4rem;
-  color: #2c3e50;
+  color: black;
   text-align: center;
   margin-bottom: 25px;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
@@ -778,12 +779,19 @@ gap: 1.5rem;
 }
 
 #splitexpenses h1,
-#settings h1 {
+#settings span {
   font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
+}
+
+#settings span {
+  padding: 1%;
+  background-color: whitesmoke;
+  border-radius: 10%;
+  border: 2px solid #333;
 }
 
 .split-method-selector {
@@ -1063,4 +1071,4 @@ color: #ecf0f1;
 
 body.dark-theme .method-radio {
   color: black;
-  }
+}
