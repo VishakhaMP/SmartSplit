@@ -8,26 +8,26 @@
   <link rel="icon" type="image/x-icon" href="../Images/favicon.png">
 </head>
 <body>
+  <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-content">
       <div class="sidebar-logo">
-        <img src="../Images/SplitMateLogo.png" alt="Splitmate Logo">
+        <img src="../Images/SmartSpli_Logo.png" alt="Splitmate Logo">
       </div>
-      
       <ul>
         <li><a href="javascript:void(0);" onclick="showPage('profile')">Profile</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('expenses')">Expenses</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('splitexpenses')">Split Expenses</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('payment')">Payment</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('settings')">Settings</a></li>
-        <!-- <li><a href="javascript:void(0);" onclick="showPage('help')">Help</a></li> -->
-         <a href="../Home/home.html">
-           <button id="logout-btn" onclick="showPage('logout')" >Log Out</button>
-         </a>
+        <a href="../Home/home.html" alt="Homepage">
+          <button id="logout-btn" onclick="showPage('logout')">Log Out</button>
+        </a>
       </ul>
     </div>
   </div>
 
+  <!-- Main Content -->
   <div class="main-content">
     <header>
       <button class="menu-btn" onclick="toggleSidebar()">☰</button>
@@ -46,10 +46,9 @@
           </div>
           <div class="profile-info">
             <h1 id="profile-name-display">Your Name</h1>
-            <p id="profile-email-display">yourname@gmail.com</p>
+            <p id="profile-email-display">name@gmail.com</p>
           </div>
         </div>
-    
         <div class="profile-edit-section">
           <div class="form-group">
             <label for="name-input">Name:</label>
@@ -67,102 +66,62 @@
         </div>
       </div>
     </div>
-    
 
-    <!-- Additional pages -->
+    <!-- Expenses Page -->
     <div id="expenses" class="page" style="display: none;">
       <div class="expenses-container">
         <h2 class="section-title">Manage Your Expenses</h2>
         <div class="expense-form">
           <input type="text" id="expense-title" placeholder="Enter expense title" class="input-field" required>
           <input type="number" id="expense-amount" placeholder="Enter amount (₹)" class="input-field" required>
-          <button class="add-expense-btn" onclick="addExpense()">
-            <span class="icon">➕</span> Add Expense
-          </button>
+          <button class="add-expense-btn" onclick="addExpense()">➕ Add Expense</button>
         </div>
         <div class="expense-list" id="expense-list">
-          <!-- Existing expenses dynamically rendered here -->
           <div class="empty-message" id="empty-message">No expenses added yet. Start by adding an expense!</div>
         </div>
-        
-<!-- Added Expenses Section -->
-<!-- Updated Added Expenses Section -->
-<div id="added-expenses-section" style="display: none;">
-  <h3>Selected Expenses</h3>
-  <div id="added-expenses-list" class="added-expenses-list"></div>
-  <div id="selected-expenses-total" class="selected-expenses-total"></div>
-  <div class="added-expenses-actions">
-    <button id="split-added-expenses-btn">Split Selected Expenses</button>
-    <button id="clear-selection-btn">Clear Selection</button>
-  </div>
-</div>
-
-
-
-        
+        <!-- Selected Expenses Section -->
+        <div id="added-expenses-section" style="display: none;">
+          <h3>Selected Expenses</h3>
+          <div id="added-expenses-list" class="added-expenses-list"></div>
+          <div id="selected-expenses-total" class="selected-expenses-total"></div>
+          <div class="added-expenses-actions">
+            <button id="split-added-expenses-btn">Split Selected Expenses</button>
+            <button id="clear-selection-btn">Clear Selection</button>
+          </div>
+        </div>
       </div>
-    </div>     
+    </div>
 
-    <!-- Split Expense Code -->
+    <!-- Split Expenses Page -->
     <div id="splitexpenses" class="page split-expenses-container" style="display: none;">
       <div class="split-expenses-wrapper">
         <h1>Expense Splitter 💸</h1>
-        
-        <!-- Split Method Selector -->
         <div class="split-method-selector">
           <h3>Choose Split Method</h3>
-          <div class="method-options">
-            <label class="method-radio">
-              <input type="radio" name="splitMethod" value="standard" checked>
-              <span>Standard Split</span>
-            </label>
-            <label class="method-radio">
-              <input type="radio" name="splitMethod" value="budget-based">
-              <span>Budget-Based Split</span>
-            </label>
-          </div>
+          <label><input type="radio" name="splitMethod" value="standard" checked> Standard Split</label>
+          <label><input type="radio" name="splitMethod" value="budget-based"> Budget-Based Split</label>
         </div>
-        
         <div class="split-content">
           <div class="split-columns">
-            <!-- Left Column: Friends Detail -->
             <div class="friends-detail">
-              <h3>➕ Add Friends</h3>
-              <div class="input-group">
-                <label for="friend-name">Friend's Name</label>
-                <input type="text" id="friend-name" placeholder="Enter friend's name">
-              </div>
-              <div class="input-group">
-                <label for="friend-info">Contact Info</label>
-                <input type="text" id="friend-info" placeholder="Email or Phone">
-              </div>
-              <div class="input-group budget-input" style="display: none;">
-                <label for="friend-budget">Budget</label>
-                <input type="number" id="friend-budget" placeholder="Enter budget">
-              </div>
+              <h3>Add Friends</h3>
+              <input type="text" id="friend-name" placeholder="Friend's Name">
+              <input type="text" id="friend-info" placeholder="Contact Info">
+              <input type="number" id="friend-budget" placeholder="Budget (if needed)" style="display: none;">
               <button id="add-friend-button">Add Friend</button>
             </div>
-            
-            <!-- Right Column: Friends List -->
             <div class="friends-list-container">
-              <h3>👥 Friends List</h3>
-              <ul id="friend-list" class="friend-list"></ul>
+              <h3>Friends List</h3>
+              <ul id="friend-list"></ul>
             </div>
           </div>
-          
-          <!-- Total Amount Input -->
           <div class="total-amount-section">
-            <div class="input-group">
-              <label for="total-amount">Total Amount</label>
-              <input type="number" id="total-amount" placeholder="Enter total amount">
-            </div>
+            <input type="number" id="total-amount" placeholder="Total Amount">
             <button id="split-button">Split Expense</button>
           </div>
         </div>
-        
-        <!-- Split Details Section -->
         <div id="result" class="split-details hidden">
-          <h3>💰 Split Details</h3>
+          <h3>Split Details</h3>
           <div id="split-breakdown"></div>
         </div>
       </div>
@@ -221,7 +180,7 @@
 
 
     <div id="settings" class="page" style="display: none;">
-      <h1 style="text-align: center;">⚙️ Settings</h1>
+      <span style="text-align: center;">⚙️ Settings</span>
     
       <!-- User & App Preferences -->
       <div class="settings-container">
@@ -276,9 +235,9 @@
   </div>
 
   <div class="bot-icon" id="bot-icon">
-    <img src="bot-icon.png" alt="Bot Icon" />
+    <img src="../Images/bot.jpg" alt="Bot Icon" />
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
+
