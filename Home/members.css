@@ -1,0 +1,71 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-image: url("../Images/background.jpg");
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-family: "Pacifico", "Times New Roman", serif;
+    margin-bottom: 30px;
+    color: #08203e;
+}
+
+.team-container {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    padding: 0 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member {
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #124079d4;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-style: oblique;
+    font-family: "Caveat",cursive;
+    transition: 0.5s;
+}
+
+.team-member:hover {
+    
+    transform: scale(1.1);
+    border: 4px solid #fff;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.3);
+}
+.team-member img {
+
+    width: 100%;
+    border-radius: 50%;
+    max-width: 150px;
+    height: auto;
+}
+
+.team-member u {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+.team-member p {
+    /* margin-top: 11px; */
+    font-size: 0.9rem;
+    color: #fff;
+}
+a{
+    color: whitesmoke;
+    font-size: 110%;
+    gap: 2%;
+}
+a :hover{
+    transform: scale(1.05);
+}

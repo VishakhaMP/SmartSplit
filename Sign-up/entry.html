@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSplit</title>
+	<link rel="stylesheet" type="text/css" href="entry.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form action="signup.php" method="post">
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<div>
+						<input type="text" name="name" placeholder="Name" minlength="3" maxlength="30" required="">
+					</div>
+					<div>
+						<input type="email" name="email" placeholder="Email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address, Ex:- your@gmail.com" required="">
+					</div>
+					<div>
+						<input type="tel" name="phone" placeholder="Phone No." minlength="10" maxlength="10" pattern="[0-9]{10}"  title="Please enter valid phone number" required="">
+					</div>
+					<div class="password-container">
+						<input type="password" name="password" id="signup-password" placeholder="Password" maxlength="15" required="">
+						<i class="fas fa-eye toggle-password" data-toggle="#signup-password"></i>
+					</div>
+					<button>Sign up</button>
+				</form>
+			</div>
+            
+			<div class="login">
+                <form action="login.php" method="post">
+                    <label for="chk" id="set" aria-hidden="true">Login</label>
+					<div>
+						<input type="text" name="name" placeholder="Name" minlength="3" maxlength="30" required="">
+					</div>
+					<div>
+						<input type="email" name="email" placeholder="Email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address, Ex:- your@gmail.com" required="">
+					</div>
+					<div class="password-container">
+						<input type="password" name="password" id="login-password" placeholder="Password" maxlength="15" required="">
+						<i class="fas fa-eye toggle-password" data-toggle="#login-password"></i>
+					</div>
+						<button>Login</button>
+				</form>
+			</div>
+	</div>
+	<script src="entry.js"></script>
+</body>
+</html>
