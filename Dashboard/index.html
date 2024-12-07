@@ -11,8 +11,15 @@
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-content">
-      <div class="sidebar-logo">
-        <img src="../Images/SmartSpli_Logo.png" alt="Splitmate Logo">
+      <div id="circle">
+        <div class="sidebar-logo">
+          <img src="../Images/SmartSpli_Logo.png" alt="Splitmate Logo">
+        </div>
+        <div class="bot-icon" id="bot-icon">
+          <a href="../ChatBot/bot.html" target="_blank" alt="Botpage">
+            <img src="../Images/bot.jpg" alt="Bot Icon" />
+          </a>
+        </div>  
       </div>
       <ul>
         <li><a href="javascript:void(0);" onclick="showPage('profile')">Profile</a></li>
@@ -159,13 +166,18 @@
             </div>
             <div class="ip-grp">
                 <label for="cardno">Card Number : </label>
-                <input type="text" id="cardno" placeholder="Enter Card Number" required>
+                <input type="text" id="cardno" placeholder="Enter Card Number" required maxlength="19"
+                pattern="(\d{4} \d{4} \d{4} \d{4})" title="Card number should be in the format 0000 0000 0000 0000"
+                oninput="formatCardNumber(this)">
+              <!-- Calls a JavaScript function named formatCardNumber every time the user types in the field, passing the current input element (this) as a parameter. -->
             </div>
             <div class="ip-grp-grp">
                 <div class="ip-grp">
                     <label for="expiry">Expiry Month : </label>
-                    <input type="month" id="expiry" required>
+                    <input type="text" id="expiry" placeholder="MM / YY" required pattern="(\d{2} '\' \d{2})"
+                    title="Expiry month should be in the format MM / YY" oninput="formatExpiryMonth(this)">
                 </div>
+                <!-- Calls the JavaScript function formatExpiryMonth whenever the input changes, passing the field as an argument. -->
                 <div class="ip-grp">
                     <label for="cvv">CVV : </label>
                     <input type="password" id="cvv"  placeholder="Enter a valid 3-digit CVV" maxlength="3" pattern="\d{3}" required>
@@ -180,20 +192,11 @@
 
 
     <div id="settings" class="page" style="display: none;">
-      <span style="text-align: center;">⚙️ Settings</span>
+      <p id="set" style="text-align: center;">⚙️ Settings</p>
     
       <!-- User & App Preferences -->
       <div class="settings-container">
         <h2>User & App Preferences</h2>
-    
-        <!-- Change Theme -->
-        <div class="setting-item">
-          <label for="theme-select">Change Theme:</label>
-          <select id="theme-select">
-            <option value="light">Light Mode</option>
-            <option value="dark">Dark Mode</option>
-          </select>
-        </div>
     
         <!-- Language Selection -->
         <div class="setting-item">
@@ -234,9 +237,6 @@
     </div>
   </div>
 
-  <div class="bot-icon" id="bot-icon">
-    <img src="../Images/bot.jpg" alt="Bot Icon" />
-  </div>
   <script src="script.js"></script>
 </body>
 </html>
