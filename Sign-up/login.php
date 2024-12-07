@@ -37,10 +37,12 @@ if ($result->num_rows > 0) {
         header("Location: ../Dashboard/index.html"); // Redirect to home page
         exit;
     } else {
-        echo "Incorrect password!";
+        echo "<script>alert('Incorrect password!'); window.history.back();</script>";
+        exit;    
     }
 } else {
-    echo "User not found!";
+    echo "<script>alert('User Not Found!'); window.history.back();</script>";
+    exit;
 }
 
 // Close connection
