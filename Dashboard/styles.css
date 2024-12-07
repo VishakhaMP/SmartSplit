@@ -22,10 +22,13 @@ body {
   background-color: #333;
   color: #fff;
   overflow-y: auto;
-  transition: transform 0.3s ease;
+  transition: left 0.3s ease;
   transition: background-color 0.3s, left 0.3s;
   z-index: 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.sidebar:hover {
+  background-color: #2b3b4d;
 }
 /*for both logo and bot*/
 #circle {
@@ -41,7 +44,7 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-.sidebar-logo img {
+.sidebar-logo img , .bot-icon img{
   border-radius: 50%;
   border: 4px solid #fff;
   max-width: 100%;
@@ -56,11 +59,6 @@ body {
   margin-bottom: 20px; 
 }
 .bot-icon img {
-  border-radius: 50%;
-  border: 4px solid #fff;
-  max-width: 100%;
-  max-height: 100px;
-  object-fit: contain;
   cursor: pointer;
 }
 .sidebar-content {
@@ -95,10 +93,12 @@ body {
   background-color: #34495e; 
   color: #fff;
 }
+.sidebar.active {
+  left: 0;
+}
 .sidebar:not(:hover) {
   background-color: #2b3b4d;
 }
-
 .sidebar-closed {
   margin-left: 0;
   width: 100%;
@@ -133,17 +133,17 @@ header .menu-btn {
   background: none;
   border: none;
   cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  color: #000;
+  z-index: 3;
 }
 
 
 
 /* Menu Button */
 .menu-btn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  color: #000000;
-  z-index: 3;
   transition: color 0.3s ease;
 }
 .menu-btn:hover {
@@ -153,21 +153,41 @@ header .menu-btn {
 .sidebar:hover + .menu-btn {
   color: #fff;
 }
-/* Responsive Sidebar */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-    transform: translateX(-100%);
-  }
 
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
+/* Sidebar - Default hidden on mobile */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hidden off-screen */
+  width: 250px;
+  height: 100vh;
+  padding-top: 20px;
+  background-color: #333;
+  color: #fff;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+/* Menu Button (hamburger) for mobile */
+.menu-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  color: #000;
+  z-index: 3;
+}
+
+.menu-btn:hover {
+  color: #0000ff;
+  transform: scale(1.1);
+}
+
 
 .page h2 {
   margin-bottom: 20px;
@@ -342,16 +362,7 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
-/* Responsive Layouts for Profile */
-@media (max-width: 768px) {
-  .profile-container {
-    padding: 10px;
-  }
 
-  .profile-info h1 {
-    font-size: 20px;
-  }
-}
 
 
 
@@ -360,7 +371,7 @@ button:hover {
 .expenses-container {
   width: 100%;
   max-width: 600px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 30px;
   background: linear-gradient(145deg, #ffffff, #dfe9f3);
   border-radius: 15px;
@@ -418,8 +429,8 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .add-expense-btn:hover {
   background-color: #2980b9;
@@ -600,12 +611,6 @@ button:hover {
   background-color: #c0392b;
 }
   
-/* Responsive Layouts for Expenses */
-@media (max-width: 768px) {
-  .expense-form .input-field {
-    flex: 1 1 100%;
-  }
-}
 
 
 
@@ -844,47 +849,6 @@ header h1 {
 .ip-grp label {
   padding: 12px;
 }
-/* Responsive Payment Page */
-@media (max-width: 768px) {
-  .pay-options .option {
-    flex: 1 1 100%;
-  }
-}
-/* General Media Queries */
-@media (max-width: 480px) {
-  .sidebar {
-    width: 180px;
-  }
-
-  .main-content {
-    padding: 10px;
-  }
-
-  .header .menu-btn {
-    font-size: 20px;
-  }
-}
-
-
-
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  #circle {
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-  }
-  .bot-icon {
-    width: 15%;
-    height: 15%;
-    margin: 0;
-  }
-  .bot-icon img {
-    width: 80%;
-    height: 80%;
-  }
-}
 
 
 
@@ -958,27 +922,92 @@ select {
 .method-radio:hover {
   background-color: rgba(0,0,0,0.05);
 }
-/* Further adjustments for very small screens */
+
+
+
+/* Mobile Screens (Up to 1024px) */
 @media (max-width: 480px) {
-  .bot-icon {
-    width: 20%;
-    height: 20%;
+  h1 {
+    font-size: 1.25rem;
   }
-  .bot-icon img {
-    width: 100%; 
-    height: 100%;
+  h2, h3 {
+    font-size: 1rem;
+  }
+  h4, h5, h6, p {
+    font-size: 0.75rem;
+  }
+  button {
+      font-size: 0.7rem;
+      padding: 5px 10px;
+  }
+  .sidebar {
+    width: 180px;
+  }
+  .main-content {
+    padding: 10px;
+  }
+  .header .menu-btn {
+    font-size: 20px;
   }
 }
-  .bot-icon:hover {
-    transform: scale(1.1);
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  h4, h5, h6 {
+    font-size: 0.875rem;
+  }
+  p {
+    font-size: 0.875rem;
+  }
+  button {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+  }
+  .flex-item, .grid {
+    flex: 1 1 100%;
+  }
+  .profile-info h1 {
+    font-size: 20px;
+  }
+  .expense-form .input-field {
+    flex: 1 1 100%;
+  }
+  .main-content {
+    margin-left: 0; 
+    width: 100%;
+  }
+  .sidebar {
+    left: 0;
+    width: 200px;
+  }
+  .sidebar.active {
+    margin-left: 0; 
+    width: 100%;
+    transform: translateX(100%);
+  }
+  .pay-options .option {
+    flex: 1 1 100%;
+  } 
+  .profile-container, .expenses-container, .split-expenses-container {
+    padding: 10px;
+  }
+  #circle {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
 }
 
 
-
-
-
-
-/* Mobile Screens (Up to 768px) */
 @media (max-width: 1024px) {
   h1 {font-size: 1.75rem;}
   h2 {font-size: 1.5rem;}
@@ -988,32 +1017,5 @@ select {
   button {
       font-size: 0.9rem;
       padding: 8px 16px;
-  }
-}
-@media (max-width: 768px) {
-  h1 {font-size: 1.5rem;}
-  h2 {font-size: 1.25rem;}
-  h3 {font-size: 1rem;}
-  h4, h5, h6 {font-size: 0.875rem;}
-  p {font-size: 0.875rem;}
-  button {
-      font-size: 0.8rem;
-      padding: 6px 12px;
-  }
-  .flex-item, .grid {flex: 1 1 100%;}
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-  }
-  .sidebar {left: -250px;}
-  .sidebar-open .sidebar {left: 0;}
-}
-@media (max-width: 480px) {
-  h1 {font-size: 1.25rem;}
-  h2, h3 {font-size: 1rem;}
-  h4, h5, h6, p {font-size: 0.75rem;}
-  button {
-      font-size: 0.7rem;
-      padding: 5px 10px;
   }
 }
