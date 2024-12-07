@@ -1,34 +1,86 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../Images/background.jpg');
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.contant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; /* Space between the two containers */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#container1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-image: url('../Images/background.jpg');
-    background-size: cover;
+    gap: 30px; /* Space between the logo and button */
 }
 
-.container {
-    border: 1px solid #fff;
-    margin-top: 5%;
-    text-align: center;
+#logo {
+    height: 300px;
+    width: 300px;
+    border: 5px solid #08203e;
+    border-radius: 20%;
+    transition: transform 0.2s ease;
+}
+
+.members-info {
+    width: 250px;
+    height: 50px;
+    padding: 10px 20px;
+    color: #08203e;
+    border: 3px solid #08203e;
+    background-color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.members-info:hover {
+    background-color: #08203e;
+    color: rgb(160, 222, 231);
+    border: none;
+    transform: scale(1.05);
+}
+
+.members-info:active {
+    background-color: #4a00e0;
+    transform: scale(1);
+}
+
+#container2 {
+    padding: 30px;
+    width: 300px;
     background: rgba(8, 32, 62, 0.9);
-    padding: 50px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    transition: 0.4s;
+}
+
+#container2:hover {
+    transform: scale(1.05);
 }
 
 .content h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
     font-family: "Pacifico", "Times New Roman", serif;
     color: #fff;
@@ -38,18 +90,15 @@ body {
 .content p {
     font-size: 1.2rem;
     font-weight: bold;
-    font-style: oblique;
-    font-family: "Caveat",cursive;
     color: #fff;
     margin-bottom: 20px;
 }
-.user{
-    font-size: 1.1rem;
+
+.user {
+    font-size: 1rem;
     font-weight: bold;
-    font-style: oblique;
-    font-family: "Caveat",cursive;
     color: #fff;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .login-button {
@@ -57,8 +106,8 @@ body {
     color: #fff;
     border: none;
     padding: 15px 30px;
-    margin: 20px;
-    font-size: 1.3rem;
+    margin: 20px 0;
+    font-size: 1.2rem;
     font-weight: bold;
     border-radius: 10px;
     border: solid 1px #557c93;
@@ -76,72 +125,14 @@ body {
     background-color: #4a00e0;
     transform: scale(1);
 }
-a{
-    color: rgb(43, 84, 217);
+
+a {
+    color: rgba(245, 245, 245, 0.795);
+    text-decoration: none;
 }
-a :hover{
-    color: #371ce8;
-    transform: scale(1.05);
+
+a:hover {
+    color: #fff;
     text-decoration: underline;
-}
-/* Team Section Styling */
-.team-section {
-    margin-top: 40px;
-    text-align: center;
-}
-
-.team-section h2 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.team-row {
-    display: flex;
-    overflow-x: auto;
-    padding: 20px;
-    gap: 20px;
-}
-
-.team-member {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 150px;
-    flex-shrink: 0;
-}
-
-.team-member img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.team-member p {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #333;
-}
-.members-info {
-    background-color: #4324f1;
-    color: rgb(160, 222, 231);
-    border: none;
-    padding: 15px 30px;
-    margin: 70px;
-    font-size: 1.5rem;
-    font-weight: bold;
-
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.members-info:hover {
-    background-color: #3b28b6;
     transform: scale(1.05);
-}
-
-.members-info:active {
-    background-color: #4a00e0;
-    transform: scale(1);
 }
