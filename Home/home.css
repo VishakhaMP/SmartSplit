@@ -11,14 +11,16 @@ body {
 
 .contant {
     display: flex;
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    gap: 100px; /* Space between the two containers */
+    gap: 50px;
+    padding: 20px;
 }
 
 .container {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -29,12 +31,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Space between the logo and button */
+    text-align: center;
+    gap: 30px;
 }
 
 #logo {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     border: 5px solid #08203e;
     border-radius: 20%;
     transition: transform 0.2s ease;
@@ -66,9 +69,15 @@ body {
     transform: scale(1);
 }
 
+.members-info, .login-button {
+    width: 100%;
+    max-width: 250px;
+}
+
 #container2 {
     padding: 30px;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     background: rgba(8, 32, 62, 0.9);
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -135,4 +144,57 @@ a:hover {
     color: #fff;
     text-decoration: underline;
     transform: scale(1.05);
+}
+
+
+/* Large Screens */
+@media (min-width: 768px) {
+    .contant {
+        flex-direction: row; /* Arrange containers side by side */
+        gap: 100px;
+    }
+    #logo {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .contant {
+        gap: 50px; /* Adjust spacing for tablets */
+    }
+}
+
+/* Small Screens (Mobile Phones) */
+@media (max-width: 767px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .contant {
+        flex-direction: column; /* Stack containers vertically */
+        gap: 30px;
+    }
+    #logo {
+        height: 150px;
+        width: 150px;
+    }
+    #container2 {
+        padding: 20px;
+    }
+    .content h1 {
+        font-size: 1.8rem;
+    }
+    .content p, .user {
+        font-size: 1rem;
+    }
+    .login-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .members-info {
+        font-size: 1rem;
+        height: 40px;
+    }
 }
