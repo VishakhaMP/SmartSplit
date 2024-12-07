@@ -560,3 +560,28 @@ splitMethodSelect.addEventListener('change', () => {
   localStorage.setItem('defaultSplitMethod', selectedMethod);
   alert(`Default split method changed to: ${selectedMethod === 'standard' ? 'Standard Split' : 'Budget-Based Split'}`);
 });
+
+// Function to format card number with spaces
+function formatCardNumber(input) {
+  let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+  if (value.length <= 16) {
+      value = value.replace(/(\d{4})(?=\d)/g, '$1 '); // Insert spaces after every 4 digits
+  }
+  input.value = value;
+}
+
+function formatExpiryMonth(input) {
+  let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+  if (value.length > 4) {
+      value = value.slice(0, 4); // Limit input to 4 digits
+  }
+  if (value.length > 2) {
+      value = value.replace(/(\d{2})(\d{1,2})/, '$1 / $2'); // Insert " / " after the first 2 digits
+  }
+  input.value = value;
+}
+
+document.querySelector('.menu-btn').addEventListener('click', function() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('active');
+});
