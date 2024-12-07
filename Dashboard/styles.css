@@ -1,12 +1,12 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  font-family: Arial, sans-serif;
   display: flex;
   background-image: url("../Images/background.jpg"); 
   color: #333;
   transition: background-color 0.3s, color 0.3s;
 }
-
 /* Sidebar Styling */
 .sidebar {
   position: fixed;
@@ -22,41 +22,34 @@ body {
   z-index: 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
 .sidebar-logo {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
-
 .sidebar-logo img {
   border-radius: 50%;
   max-width: 100%; /* Prevents horizontal stretching */
   max-height: 100px; /* Limits vertical size to fit sidebar */
   object-fit: contain; /* Maintains aspect ratio */
 }
-
 .sidebar-content {
   padding: 20px;
   margin-top: 3rem;
 }
-
 .sidebar h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-
 .sidebar ul {
   list-style-type: none;
   padding: 0;
 }
-
 .sidebar li {
   margin: 15px 0;
 }
-
 .sidebar a {
   color: #ecf0f1;
   text-decoration: none;
@@ -66,8 +59,7 @@ body {
   border-radius: 5px;
   transition: background 0.3s, color 0.3s;
 }
-
-.sidebar a:hover {
+.sidebar ul a:hover {
   background-color: #34495e; 
   color: #fff;
 }
@@ -645,30 +637,32 @@ header h1 {
   /* background: #ffffff; */
 }
 
+/*for both logo and bot*/
+#circle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bot-icon {
+  margin: 0 109px;
+}
+
 /* Bot Icon Styling */
 .bot-icon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #3498db;
+  width: 10%;
+  height: 10%;
   border-radius: 50%;
-  display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
 .bot-icon img {
-  width: 30px;
-  height: 30px;
+  width: 50%;
+  height: 50%;
   border-radius: 50%;
-}
-
-.bot-icon:hover {
-  background-color: #2980b9;
 }
 
 /* Mobile Screens (Up to 768px) */
@@ -779,7 +773,7 @@ gap: 1.5rem;
 }
 
 #splitexpenses h1,
-#settings span {
+#settings set {
   font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
@@ -787,11 +781,14 @@ gap: 1.5rem;
   font-weight: bold;
 }
 
-#settings span {
-  padding: 1%;
+#set {
+  font-size: 18px;
+  padding: 10px;
   background-color: whitesmoke;
-  border-radius: 10%;
+  border-radius: 7%;
   border: 2px solid #333;
+  width: 100px;
+  justify-self: center;
 }
 
 .split-method-selector {
