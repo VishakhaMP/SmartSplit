@@ -27,6 +27,7 @@ $stmt->bind_param("ssss", $name, $email, $phone, $password);
 
 if ($stmt->execute()) {
     echo "Registration successful!";
+    header("Location: ../Sign-up/entry.html"); // Redirect to home page
 } else {
     echo "Error: " . $stmt->error;
 }
