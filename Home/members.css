@@ -68,6 +68,35 @@ a{
 a :hover{
     transform: scale(1.05);
 }
+button {
+    width: 250px;
+    height: 50px;
+    padding: 10px 20px;
+    background-color: #08203e;
+    color: rgb(160, 222, 231);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button:hover {
+    color: #08203e;
+    background-color: #fff;
+    border: 3px solid #08203e;
+    transform: scale(1.05);
+}
+button:active {
+    background-color: #4a00e0;
+    transform: scale(1);
+}
+button {
+    width: 100%;
+    max-width: 250px;
+}
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
     h1 {
