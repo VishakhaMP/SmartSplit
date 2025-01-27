@@ -3,6 +3,7 @@
 ### Overview
 Smart Split is a user-friendly application designed to help friends and groups manage shared expenses effortlessly. Whether it's for a trip, dinner, or daily expenses, this app ensures transparency by keeping track of who owes whom and allows users to send gentle reminders to settle up.
 
+![Smart Split Homw Page](SmartSplitPreview.png)
 ---
 
 ### Features
