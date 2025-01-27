@@ -35,14 +35,13 @@ Smart Split is a user-friendly application designed to help friends and groups m
 ### Tech Stack
 - **Frontend**: HTML / CSS / Javascript
 - **Database**: MyPHPAdmin / MySQL 
-- **Payment Integration**: Stripe / PayPal API (optional)
 
 ---
 
 ### Installation
    Clone the repository:  
    ```bash
-   git clone https://github.com/panchalbhakti/SplitMate.git
+   git clone https://github.com/panchalbhakti/SmartSplit.git
    cd SmartSplit
    ```
 
@@ -54,30 +53,3 @@ Smart Split is a user-friendly application designed to help friends and groups m
 - Add support for recurring expenses.
 
 ---
-
-### Contributing
-Contributions are welcome!  
-1. Fork the repository.  
-2. Create a new branch for your feature/fix:  
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes and push them to the branch.  
-4. Open a pull request for review.
-
----
-
-### License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.  
-
----
-
-### Contact
-For any questions or suggestions, please contact:  
-- **Name**: Vishakha Parmmar, Bhakti Panchal
-- **Email**: vishakhamparmar29@gmail.com
-- **GitHub**: [VishakhaMP](https://github.com/VishakhaMP), [panchalbhakti](https://github.com/panchalbhakti)
-
---- 
-
-Feel free to customize this README based on the specific features or tech stack used in your project!
