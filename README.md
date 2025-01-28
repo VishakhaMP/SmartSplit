@@ -42,7 +42,7 @@ Smart Split is a user-friendly application designed to help friends and groups m
 ### Installation
    Clone the repository:  
    ```bash
-   git clone https://github.com/panchalbhakti/SmartSplit.git
+   git clone https://github.com/VishakhaMP/SmartSplit.git
    cd SmartSplit
    ```
 
@@ -52,5 +52,3 @@ Smart Split is a user-friendly application designed to help friends and groups m
 - Introduce expense categorization (e.g., Food, Travel, Shopping).
 - Implement machine learning to suggest expense trends and budgeting tips.
 - Add support for recurring expenses.
-
----
