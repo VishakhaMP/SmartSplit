@@ -42,7 +42,7 @@ Smart Split is a user-friendly application designed to help friends and groups m
 ### Installation
    Clone the repository:  
    ```bash
-   git clone https://github.com/VishakhaMP/SmartSplit.git
+   git clone https://github.com/VishakhaParmar/SmartSplit.git
    cd SmartSplit
    ```
 
